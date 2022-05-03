@@ -12,7 +12,8 @@ class upd:
         s.root.focus_force()
 
         ####---------- ALL VARIABLES---
-        s.search=StringVar()  
+        s.var_searchby=StringVar()
+        s.var_search=StringVar()
         s.var_user_id=StringVar()
         s.var_name=StringVar()
         s.var_dob=StringVar()
@@ -28,75 +29,79 @@ class upd:
         searc.place(x=310,y=0,width=600,height=70)
 
         # ++++++++ options +++++++
-        cmb_cat=ttk.Combobox(searc,textvariable=s.search,values=("Select","Student number","Student name","Company"),state="readonly",justify=CENTER,font=("tgoudy old style",10,"bold"))
+        cmb_cat=ttk.Combobox(searc,textvariable=s.var_searchby,values=("Select","useri_id","name","company"),state="readonly",justify=CENTER,font=("tgoudy old style",10,"bold"))
         cmb_cat.place(x=0,y=0)
         cmb_cat.current(0)
-        txtsearch=Entry(searc,font=("goudy old style",15,"bold"),bg="lightyellow").place(x=230,y=10,width=180)
+        txtsearch=Entry(searc,textvariable=s.var_search,font=("goudy old style",15,"bold"),bg="lightyellow").place(x=230,y=10,width=180)
 
-        btsearch=Button(searc,text="search",font=("goudy old style",15),bg="white",cursor="hand2").place(x=440,y=10,height=30,width=120)
+        btsearch=Button(searc,text="search",command=s.search1,font=("goudy old style",15),bg="white",cursor="hand2").place(x=440,y=10,height=30,width=120)
 
         title=Label(s.root,text="Student details",font=("goudy old style",15),bg="brown").place(x=20,y=80,width=1000)
 
 
-        ##--------EMP ENTERIES-----------
+          ##--------EMP ENTERIES-----------
 ##-----------   USER_ID--------
         user_emp=Label(s.root,text="User_id",font=("times new roman" ,15, "bold"),fg="#FFFDD0",bg="#7E481C",bd=3)
-        user_emp.place(x=11,y=180,height=40,width=110)
+        user_emp.place(x=11,y=120,height=40,width=110)
         ##-----------   NAME--------
         name_emp=Label(s.root,text="Name",font=("times new roman" ,15, "bold"),fg="#FFFDD0",bg="#7E481C",bd=3)
-        name_emp.place(x=611,y=180,height=40,width=110)
+        name_emp.place(x=611,y=120,height=40,width=110)
         ##-----------   DOB--------
-        doj_emp=Label(s.root,text="Doj",font=("times new roman" ,15, "bold"),fg="#FFFDD0",bg="#7E481C",bd=3)
-        doj_emp.place(x=11,y=280,height=40,width=110)
+        doj_emp=Label(s.root,text="Dob",font=("times new roman" ,15, "bold"),fg="#FFFDD0",bg="#7E481C",bd=3)
+        doj_emp.place(x=11,y=180,height=40,width=110)
         ##-----------   MOBILE_NO--------
         mob_emp=Label(s.root,text="Mobile no",font=("times new roman" ,15, "bold"),fg="#FFFDD0",bg="#7E481C",bd=3)
-        mob_emp.place(x=611,y=280,height=40,width=110)
+        mob_emp.place(x=611,y=180,height=40,width=110)
         ##-----------EMAIL--------
         pass_emp=Label(s.root,text="Email",font=("times new roman" ,15, "bold"),fg="#FFFDD0",bg="#7E481C",bd=3)
-        pass_emp.place(x=11,y=330,height=40,width=110)
+        pass_emp.place(x=11,y=230,height=40,width=110)
         ##-----------COMPANY--------
         utype_emp=Label(s.root,text="Comapny",font=("times new roman" ,15, "bold"),fg="#FFFDD0",bg="#7E481C",bd=3)
-        utype_emp.place(x=611,y=330,height=40,width=110)
+        utype_emp.place(x=611,y=230,height=40,width=110)
 
         ##-----------STATUS--------
         utype_emp=Label(s.root,text="Status",font=("times new roman" ,15, "bold"),fg="#FFFDD0",bg="#7E481C",bd=3)
-        utype_emp.place(x=11,y=380,height=40,width=110)
+        utype_emp.place(x=11,y=280,height=40,width=110)
 
 
 
 
         ###---------ENTRY -----------
         user_Eemp=Entry(s.root,textvariable=s.var_user_id,font=("times new roman" ,15),bg="white",bd=4)
-        user_Eemp.place(x=271,y=180,height=40,width=210)
+        user_Eemp.place(x=271,y=120,height=40,width=210)
 
         ###---------NAME -----------
         nam_Eemp=Entry(s.root,textvariable=s.var_name,font=("times new roman" ,15),bg="white",bd=4)
-        nam_Eemp.place(x=771,y=180,height=40,width=210)
+        nam_Eemp.place(x=771,y=120,height=40,width=210)
 
         ###---------DOB -----------
         s.doj_Eemp=Entry(s.root,textvariable=s.var_dob,font=("times new roman",15),bg="white",bd=4)
-        s.doj_Eemp.place(x=271,y=280,height=40,width=200)
+        s.doj_Eemp.place(x=271,y=180,height=40,width=200)
         
             
         
         ###---------MOBILE_NO -----------
         mob_Eemp=Entry(s.root,textvariable=s.var_mobileno,font=("times new roman" ,15),fg="black",bg="white",bd=4)
-        mob_Eemp.place(x=771,y=280,height=40,width=210)
+        mob_Eemp.place(x=771,y=180,height=40,width=210)
 
         ###---------EMAIL -----------
         pass_Eemp=Entry(s.root,textvariable=s.var_email,font=("times new roman" ,15),fg="black",bg="white",bd=4)
-        pass_Eemp.place(x=271,y=330,height=40,width=210)
+        pass_Eemp.place(x=271,y=230,height=40,width=210)
 
         ###---------COMPANY -----------
         utype_Eemp=Entry(s.root,textvariable=s.var_company,font=("times new roman" ,15),fg="black",bg="white",bd=4)
-        utype_Eemp.place(x=771,y=330,height=40,width=210)
+        utype_Eemp.place(x=771,y=230,height=40,width=210)
 
         ###---------STATUS -----------
         utype_Eemp=Entry(s.root,textvariable=s.var_status,font=("times new roman" ,15),fg="black",bg="white",bd=4)
-        utype_Eemp.place(x=311,y=380,height=40,width=210)
+        utype_Eemp.place(x=311,y=280,height=40,width=210)
       #+++++++++++ BUTTON +++++++++++++++++  
         add_emp=Button(s.root,text="UPDATE",command=s.updates,font=("times new roman" ,15),bg="#4caf50",fg="grey",bd=4)
-        add_emp.place(x=330,y=450,height=40,width=110)
+        add_emp.place(x=531,y=280,height=40,width=110)
+
+        clear_emp=Button(s.root,text="CLEAR",command=s.clear,font=("times new roman" ,15),bg="#4caf50",fg="grey",bd=4)
+        clear_emp.place(x=831,y=280,height=40,width=110)
+
 
 
 
@@ -107,7 +112,7 @@ class upd:
 
         
         view_emp=Frame(s.root,bd=3,relief=RIDGE)
-        view_emp.place(x=0,y=0,relwidth=1,height=400)
+        view_emp.place(x=100,y=340,width=900,height=180)
 
         scrolly=Scrollbar(view_emp,orient=VERTICAL)
         scrollx=Scrollbar(view_emp,orient=HORIZONTAL)
@@ -144,7 +149,7 @@ class upd:
         s.studentTable.column("status",width=100)
 
         s.studentTable.pack(fill=BOTH,expand=1)
-       # s.studentTable.bind("<ButtonRelease-1>",s.get_data)
+        s.studentTable.bind("<ButtonRelease-1>",s.get_data)
         s.show()
         st.configure("Treeview",
                   background="grey",
@@ -209,15 +214,61 @@ class upd:
                     con.commit()
                     ms.showinfo("Success","Employee added successfully",parent=s.root)
                     print("done")
-                    
+                    s.show()                    
                    
         except Exception as ex:
             ms.showerror("Error",f"Error due to :{(str(ex))}",parent=s.root)
 
+    ###### ++++++++ get data ++++++++++
+    def  get_data(s,ev):
+        f=s.studentTable.focus()
+        content=s.studentTable.item(f)
+        row=content['values']
+        s.var_user_id.set(row[0])
+        s.var_name.set(row[1])
+        s.var_dob.set(row[2])
+        s.var_mobileno.set(row[3])
+        s.var_email.set(row[4]),
+        s.var_company.set(row[5])
+        s.var_status.set(row[6])
+        
+    ########### search +++++++
+    def search1(self):
+        con=sqlite3.connect(database=r'stud.db')
+        cur=con.cursor()
+        try:
+            if self.var_searchby.get()=="select":
+                ms.showerror("Error","select the option  ",parent=self.root)
+            elif   self.var_search.get()=="":
+                ms.showerror("Error","search input should be required ",parent=self.root)
+            else:
+                cur.execute("Select * from student where  "+self.var_searchby.get()+" LIKE '%"+self.var_search.get()+ "%' ")
+                print(8)
+                ro=cur.fetchall()
+                if len(ro)!=0:
+                    print(33)
+                    self.studentTable.delete(*self.studentTable.get_children())
+                    for row in ro:
+                        self.studentTable.insert('',END,values=row)
+                else:
+                    ms.showerror("Error","No record found",parent=self.root)
 
+        except Exception as ex:
+             ms.showerror("Error",f"Error due to :{(str(ex))}",parent=self.root) 
+        
+    ####### ++++++  clear +++++++++++
+    def clear(s):
+        s.var_searchby.set("select")
+        s.var_search.set("")
+        s.var_user_id.set("")
+        s.var_name.set("")
+        s.var_dob.set("")
+        s.var_mobileno.set("")
+        s.var_email.set("")
+        s.var_company.set("")
+        s.var_status.set("")
 
-
-
+        s.show()
 
 
 if  __name__=="__main__":
